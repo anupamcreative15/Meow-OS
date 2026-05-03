@@ -35,3 +35,6 @@ MEOW-OS/
 │── script.js
 │── README.md
 │── images/
+
+## By Team KAIZEN
+
