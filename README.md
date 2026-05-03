@@ -23,7 +23,8 @@ The idea was to create a simple desktop-like interface on the web with a login s
   - Browser demo
   - Terminal demo
   - Weather widget
-
+---
+By Team KAIZEN
 ---
 
 ## Project Structure
@@ -36,5 +37,5 @@ MEOW-OS/
 │── README.md
 │── images/
 
-## By Team KAIZEN
+
 
