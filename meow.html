@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<head>
+  <title>MEOW OS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="login">
+    <div class="login-box">
+      <div class="cat-box">
+        <img src="hi.png" alt="cat" id="loginCat">
+      </div>
+      <button id="signInBtn">SIGN IN</button>
+      <div class="login-bar">
+        <div class="time">12:00</div>
+        <div class="icons-mini">
+          <span>⏻</span>
+          <span>🛜</span>
+          <span>🔋</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="home" class="hidden">
+    <div id="desktopIcons">
+      <div class="icon" onclick="openWindow('youtubeWindow')">
+        <img src="youtube.png" alt="youtube">
+      </div>
+
+      <div class="icon" onclick="openWindow('browserWindow')">
+        <img src="chrome.png" alt="chrome">
+      </div>
+
+      <div class="icon" onclick="openWindow('catWindow')">
+        <img src="meow.jpg" alt="cat">
+      </div>
+
+      <div class="icon" onclick="openWindow('calcWindow')">
+        <img src="cal.png" alt="calc">
+      </div>
+
+      <div class="icon" onclick="openWindow('terminalWindow')">
+        <img src="term.png" alt="terminal">
+      </div>
+
+      <div class="icon" onclick="openWindow('notesWindow')">
+        <img src="note.png" alt="notes">
+      </div>
+    </div>
+
+    <div id="weatherWidget">
+      <img src="heat.png" alt="weather">
+      <span>42°</span>
+    </div>
+
+    <!-- DOCK -->
+    <div id="dock">
+      <div class="dock-icon" onclick="openWindow('youtubeWindow')">
+        <img src="youtube.png" >
+      </div>
+      <div class="dock-icon" onclick="openWindow('chromeWindow')">
+        <img src="chrome.png" >
+      </div>
+      <div class="dock-icon" onclick="openWindow('meowWindow')">
+        <img src="meow.jpg">
+      </div>
+      <div class="dock-icon" onclick="openWindow('calWindow')">
+        <img src="cal.png">
+      </div>
+      <div class="dock-icon" onclick="openWindow('termWindow')">
+        <img src="term.png">
+      </div>
+    </div>
+
+    <div id="Menu">
+      <div onclick="changeWallpaper(1)">View</div>
+      <div onclick="refreshDesktop()">Refresh</div>
+      <div onclick="openWindow('wallpaperWindow')">Personalize</div>
+    </div>
+    <div class="window hidden" id="youtubeWindow">
+      <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+        <span>YouTube</span>
+        <div>
+          <button onclick="minimizeWindow('youtubeWindow')">—</button>
+          <button onclick="closeWindow('youtubeWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content center-content">
+        <h2>YouTube App</h2>
+        <p>This is a demo window.</p>
+      </div>
+    </div>
+
+    <div class="window hidden" id="browserWindow">
+      <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+        <span>Browser</span>
+        <div>
+          <button onclick="minimizeWindow('browserWindow')">—</button>
+          <button onclick="closeWindow('browserWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content">
+        <input type="text" placeholder="Search something..." class="fake-search">
+        <div class="browser-box">
+          <p>Fake browser page</p>
+          <p>You can later connect this with iframe or search list.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="window hidden" id="catWindow">
+      <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+        <span>Cat App</span>
+        <div>
+          <button onclick="minimizeWindow('catWindow')">—</button>
+          <button onclick="closeWindow('catWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content center-content">
+        <img src="hi.png" alt="cat" class="big-cat">
+        <p>MEOW!</p>
+      </div>
+    </div>
+
+    <div class="window hidden" id="calWindow">
+      <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+        <span>Calculator</span>
+        <div>
+          <button onclick="minimizeWindow('calWindow')">—</button>
+          <button onclick="closeWindow('calWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content">
+        <input type="text" id="calDisplay" readonly>
+        <div class="cal-grid">
+          <button onclick="addCal('7')">7</button>
+          <button onclick="addCal('8')">8</button>
+          <button onclick="addCal('9')">9</button>
+          <button onclick="addCal('/')">/</button>
+
+          <button onclick="addCal('4')">4</button>
+          <button onclick="addCal('5')">5</button>
+          <button onclick="addCal('6')">6</button>
+          <button onclick="addCal('*')">*</button>
+
+          <button onclick="addCal('1')">1</button>
+          <button onclick="addCal('2')">2</button>
+          <button onclick="addCal('3')">3</button>
+          <button onclick="addCal('-')">-</button>
+
+          <button onclick="addCal('0')">0</button>
+          <button onclick="addCal('.')">.</button>
+          <button onclick="calculateAnswer()">=</button>
+          <button onclick="addCal('+')">+</button>
+
+          <button class="clear-btn" onclick="clearCal()">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="window hidden" id="terminalWindow">
+      <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+        <span>Terminal</span>
+        <div>
+          <button onclick="minimizeWindow('terminalWindow')">—</button>
+          <button onclick="closeWindow('terminalWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content terminal-box">
+        <p>> welcome to meow os terminal</p>
+        <p>> user: guest</p>
+        <p>> status: active</p>
+      </div>
+    </div>
+
+    <div class="window hidden" id="notesWindow">
+      <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+        <span>Notes</span>
+        <div>
+          <button onclick="minimizeWindow('notesWindow')">—</button>
+          <button onclick="closeWindow('notesWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content">
+        <textarea id="notesArea" placeholder="Write here..."></textarea>
+      </div>
+    </div>
+
+    <div class="window hidden" id="wallpaperWindow">
+      <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+        <span>Personalize your device</span>
+        <div>
+          <button onclick="minimizeWindow('wallpaperWindow')">—</button>
+          <button onclick="closeWindow('wallpaperWindow')">✕</button>
+        </div>
+      </div>
+      <div class="window-content">
+        <h2 class="wall-title">Choose Wallpaper</h2>
+        <div class="wall-grid">
+          <div class="wall wall1" onclick="changeWallpaper(1)"></div>
+          <div class="wall wall2" onclick="changeWallpaper(2)"></div>
+          <div class="wall wall3" onclick="changeWallpaper(3)"></div>
+          <div class="wall wall4" onclick="changeWallpaper(4)"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
