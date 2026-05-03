@@ -1,6 +1,7 @@
 # MEOW OS
 
 MEOW OS is a browser-based mini web operating system made using **HTML, CSS, and JavaScript** for cat lovers.
+
 The idea is to create a simple desktop-like interface on the web with a login screen, app icons, movable windows, basic apps, and wallpaper personalization.
 
 ---
